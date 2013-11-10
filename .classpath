@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.launching.macosx.MacOSXType/Java SE 6 (MacOS X Default)"/>
+	<classpathentry kind="lib" path="libs/c3p0-0.9.2.1.jar"/>
+	<classpathentry kind="lib" path="libs/gson-2.2.2.jar"/>
+	<classpathentry kind="lib" path="libs/mchange-commons-java-0.2.3.4.jar"/>
+	<classpathentry kind="lib" path="libs/mysql-connector-java-5.1.20-bin.jar"/>
+	<classpathentry kind="lib" path="libs/netty-3.7.0.Final.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
