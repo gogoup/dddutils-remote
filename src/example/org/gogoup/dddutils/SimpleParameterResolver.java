@@ -20,7 +20,7 @@ package example.org.gogoup.dddutils;
 import org.gogoup.dddutils.pool.ParameterPool;
 import org.gogoup.dddutils.pool.ParameterResolver;
 
-public class SimpleParameter implements ParameterResolver {
+public class SimpleParameterResolver implements ParameterResolver {
 	
 	private static final String PARAMETER1 = "PARAMETER1";
 
@@ -30,7 +30,7 @@ public class SimpleParameter implements ParameterResolver {
 	
 	private String content;
 	
-	public SimpleParameter() {
+	public SimpleParameterResolver() {
 
 	}
 

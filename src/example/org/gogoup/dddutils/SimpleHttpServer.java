@@ -84,13 +84,13 @@ public class SimpleHttpServer {
 						if(!NEED_SESSION_PERSISTENCE)
 						{
 							return new ParameterResolver[] {
-									new SimpleParameter()
+									new SimpleParameterResolver()
 							};
 						}
 						
 						//for session persistence.
 						return new ParameterResolver[] {
-								new SimpleParameter(),
+								new SimpleParameterResolver(),
 								new JDBCResolver(
 										DBConnectionManager.getInstance(), 
 										new String[]{
