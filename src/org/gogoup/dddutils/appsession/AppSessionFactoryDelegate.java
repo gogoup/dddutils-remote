@@ -18,12 +18,12 @@ package org.gogoup.dddutils.appsession;
 
 import org.gogoup.dddutils.pool.ParameterResolver;
 
-
 public interface AppSessionFactoryDelegate {
-	
-	public AppSession assembleAppSession(AppSessionFactory factory, String sessionKey);
-	
-	public ParameterResolver[] loadParameterResolvers(AppSessionFactory factory, AppSession session);
-	
-	public AppServiceResolver[] loadAppServiceResolvers(AppSessionFactory factory, AppSessionContext context);
+    
+    public ParameterResolver[] registerApplicationParameterResolvers(AppSessionFactory factory);
+    
+    public ParameterResolver[] registerParameterResolvers(AppSessionFactory factory, AppSession session);
+    
+    public AppServiceResolver[] registerAppServiceResolvers(AppSessionFactory factory, AppSession session); 
+    
 }

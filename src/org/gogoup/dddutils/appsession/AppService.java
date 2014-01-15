@@ -16,11 +16,39 @@
 
 package org.gogoup.dddutils.appsession;
 
-
-
-
 public interface AppService {
-
-	public void init(AppSessionContext context);
-	
+    
+    /**
+     * This method will be invoked as this service first time created.
+     * 
+     * @param context
+     *            AppSessionContext
+     */
+    public void install(AppSessionContext context);
+    
+    /**
+     * This method will be invoked as a client access this service via the
+     * session.
+     * 
+     * @param context
+     *            AppSessionContext
+     */
+    public void init(AppSessionContext context);
+    
+    /**
+     * This method will be invoked as the session closed.
+     * 
+     * @param context
+     *            AppSessionContext
+     */
+    public void close(AppSessionContext context);
+    
+    /**
+     * This method will be invoked as the session destroyed
+     * 
+     * @param context
+     *            AppSessionContext
+     */
+    public void uninstall(AppSessionContext context);
+    
 }

@@ -18,31 +18,35 @@ package org.gogoup.dddutils.appsession;
 
 import org.gogoup.dddutils.pool.ParameterResolver;
 
-
-
-public interface AppSessionContext{
-		
-	/**
-	 * Register a ParameterResolver to the current session.
-	 * 
-	 * @param resolver
-	 */
-	public void registerParameterResolver(ParameterResolver resolver);
-	
-	/**
-	 * Register a AppServiceResolver to the current session.
-	 * 
-	 * @param resolver
-	 */
-	public void registerAppServiceResolver(AppServiceResolver resolver);
-	
-	/**
-	 * Returns the current session.
-	 * 
-	 * @return AppSession
-	 */
-	public AppSession getCurrentSession();
-	
-	public AppSession getSession(String key) throws NoSuchAppSessionException;
-	
+public interface AppSessionContext {
+    
+    /**
+     * Access the current session.
+     * 
+     * @return AppSession
+     */
+    public AppSession getSession();
+    
+    /**
+     * Access other sessions.
+     * 
+     * This method will return another instance of the session with the same
+     * session key of the current session {@link #getSession()}.
+     * 
+     * 
+     * @param key
+     *            String
+     * @return AppSession
+     * @throws NoSuchAppSessionException
+     */
+    public AppSession getSession(String key) throws NoSuchAppSessionException;
+    
+    public Object getApplicationParameter(String name);
+    
+    public void setApplicationParameter(String name, Object value);
+        
+    public long registerSessionParameterResolver(ParameterResolver resolver);
+        
+    public void deregisterSessionParameterResolver(long id);
+    
 }

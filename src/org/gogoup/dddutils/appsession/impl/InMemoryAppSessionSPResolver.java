@@ -18,50 +18,45 @@ package org.gogoup.dddutils.appsession.impl;
 
 import org.gogoup.dddutils.appsession.AppService;
 import org.gogoup.dddutils.appsession.AppServiceResolver;
-import org.gogoup.dddutils.appsession.AppSessionContext;
 import org.gogoup.dddutils.appsession.spi.AppSessionSPI;
 
-public class InMemoryAppSessionSPResolver extends AppServiceResolver {
-	
-	private static final String[] names={
-		AppSessionSPI.class.getCanonicalName()
-	};
-	
-
-	public InMemoryAppSessionSPResolver(AppSessionContext sessionContext) {
-		super(sessionContext, names);
-		
-	}
-
-	@Override
-	protected String[] findAppServiceNames(AppSessionContext context,
-			String query) {
-
-		return null;
-	}
-
-	@Override
-	protected String[] getDependences(String name) {
-		
-		return null;
-	}
-
-	@Override
-	protected boolean verifyDependence(String name, Object value) {
-		
-		
-		return false;
-	}
-
-	@Override
-	protected AppService getAppService(AppSessionContext context,
-			String name) {
-		
-		if(AppSessionSPI.class.getCanonicalName().equals(name))
-		{				
-			return new InMemoryAppSessionSP();
-		}
-		return null;
-	}
-
+public class InMemoryAppSessionSPResolver implements AppServiceResolver {
+    
+    private static final String[] names = { AppSessionSPI.class.getCanonicalName() };
+    
+    public InMemoryAppSessionSPResolver() {
+    }
+    
+    @Override
+    public String[] getServiceNames() {
+        return names;
+    }
+    
+    @Override
+    public String[] findAppServiceNames(String query) {
+        
+        return null;
+    }
+    
+    @Override
+    public String[] getDependences(String name) {
+        
+        return null;
+    }
+    
+    @Override
+    public boolean verifyDependence(String name, AppService service) {
+        
+        return false;
+    }
+    
+    @Override
+    public AppService getAppService(String name) {
+        
+        if (AppSessionSPI.class.getCanonicalName().equals(name)) {
+            return new InMemoryAppSessionSP();
+        }
+        return null;
+    }
+    
 }
